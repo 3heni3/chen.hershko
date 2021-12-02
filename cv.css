@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+    text-align: center;
+}
+div div div {
+    text-align: left;
+}
+
+#Title { 
+    grid-area: header;
+    background-color: rgb(238, 67, 96);
+ }
+
+#Skills { 
+    grid-area: right;
+    background-color: rgb(230, 128, 243); }
+
+#volunteer { 
+    grid-area: footer;
+    background-color: rgb(164, 164, 255); }
+
+#Education { 
+    grid-area: left;
+    background-color: rgb(177, 222, 248); 
+}
+
+#MyCVGrid {
+    display: grid;
+    grid-template-areas: 
+    'header header header header'
+    'left left right right'
+    'footer footer footer footer';
+}
+
+.button-div {
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
+    }
+    .button-div input {
+    margin: 0 auto;
+    }

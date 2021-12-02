@@ -2,6 +2,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="styles.css">
+    <script src='form.js'></script>
 </head>
 <body>
     <h1 class="Headers">Chen Hershko Club</h2>
@@ -21,7 +22,7 @@
     </form>
     <h2 class="Headers">Contact us</h2>
     <p>For any questions regarding the club or registration, please leave the details below and we will contact you</p>
-    <form>
+    <form name="ContactUsForm" onsubmit="return validateForm()" method="post">
         <label for="id">ID:</label><br>
         <input type="text" id="id" name="id"><br>
         <label for="address">Address:</label><br>
