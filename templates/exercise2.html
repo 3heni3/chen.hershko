@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hi, Welcome everybody (:</title>
+</head>
+<body>
+{% set page_name = 'Home Page' %}
+{% include 'header.html' %}
+<p>Hello
+    welcome everybody (:
+</p>
+<img src="{{url_for('static', filename='img/Sky.jpg') }}" alt="Wonderful sky" width="200" height="300">
+</body>
+</html>
+    

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+{% set page_name = 'Sport Hobbies' %}
+{% include 'header.html' %}
+<p>If you want us to compare if we have same hobbies, please write your hobbies down below! You are welcome to fill
+    partial details</p>
+<form name="hobie-form" action="/hobbies/compare" method="get">
+    <label for="fname">First Name</label><br>
+    <input type="text" id="fname" name="fname"><br>
+    <label for="lname">Family Name</label><br>
+    <input type="text" id="lname" name="lname"><br>
+    <br>
+    <label for="user-hobbies">Hobbies: Write your hobbies, with Comma separate values.</label><br>
+    <input type="text" id="user-hobbies" name="user-hobbies" placeholder="volleyball,basketball,football"><br>
+    <br>
+    <input type="submit" value="Check Hobbies Similarity!">
+</form>
+<h1>See My Hobbies</h1>
+<div class="SubHeaders">
+    <div class="SubHeader">
+        <a href="{{ url_for('hobbies', category='sport') }}">
+            <h3>Sports</h3>
+        </a>
+    </div>
+    <div class="SubHeader">
+        <a href="{{ url_for('hobbies', category='music') }}">
+            <h3>Music</h3>
+        </a>
+    </div>
+    <div class="SubHeader">
+        <a href="{{ url_for('hobbies', category='tv') }}">
+            <h3>TV Shows</h3>
+        </a>
+    </div>
+    {% if hobbies_list %}
+    <h3>My Favourite {{ category | upper }} Hobbies Are:</h3>
+    {% extends 'hobby-base.html' %}
+    {% block hobby_content %}
+    {{ super() }}
+    <br>
+    <ul>
+        {% for hobby in hobbies_list %}
+        <li>{{hobby | capitalize}}</li>
+        {% endfor %}
+    </ul>
+    {% endblock %}
+    {% else %}
+    <h2>Choose One Of The Above Categories To See My Hobbies, Or Share Your Hobbies With Me So We Can Compare</h2>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="{{ url_for('static', filename='css/form.js') }}"></script>
+</head>
+<body>
+{% set page_name = 'Form' %}
+{% include 'header.html' %}
+<h1 class="Headers">Chen Hershko Club</h1>
+<p>Please enter your details to enter Chen Hershko's club</p>
+<form>
+    <label for="fname">First name:</label><br>
+    <input type="text" id="fname" name="fname"><br>
+    <label for="lname">Last name:</label><br>
+    <input type="text" id="lname" name="lname"><br>
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email"><br>
+    <label for="lucky">Lucky Number:</label><br>
+    <input type="number" id="lucky" name="lucky"><br>
+    <label for="dob">Date Of Birth:</label><br>
+    <input type="date" id="dob" name="dob"><br><br>
+    <input type="submit" value="Submit">
+</form>
+<h2 class="Headers">Contact us</h2>
+<p>For any questions regarding the club or registration, please leave the details below and we will contact you</p>
+<form name="ContactUsForm" onsubmit="return validateForm()" method="post">
+    <label for="id">ID:</label><br>
+    <input type="text" id="id" name="id"><br>
+    <label for="address">Address:</label><br>
+    <input type="text" id="address" name="address"><br>
+    <label for="phone">Phone Number:</label><br>
+    <input type="text" id="phone" name="phone"><br><br>
+    <input type="submit" value="Submit">
+</form>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<script src="{{ url_for('static', filename='css/myScript.js') }}"></script>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/CVgrid.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+{% set page_name = 'CV Grid' %}
+{% include 'header.html' %}
+<br>
+<br>
+<div id="MyCVGrid">
+    <div id="Title">
+        Chen Hershko CV
+        <div>4th year student of Industrial Engineering</div>
+    </div>
+    <div id="Skills">
+        My Skills
+        <div>- Java<br>- Python<br>- HTML</div>
+    </div>
+    <div id="volunteer">
+        Volunteering
+        <div>- Ruach Tova</div>
+    </div>
+    <div id="Education">
+        Education
+        <div>- Itzhak Rabin Highscool <br>- Ben Gurion University</div>
+    </div>
+</div>
+</body>
+</html>

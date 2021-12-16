@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+<script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+<script src="{{ url_for('static', filename='js/cv.js') }}"></script>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cv.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+{% set page_name = 'CV' %}
+{% include 'header.html' %}
+<div id="MyCVGrid" class="MyCVGrid">
+    <div id="Title">
+        Chen Hershko CV
+        <div>4th year student of Industrial Engineering</div>
+    </div>
+    <div id="Skills">
+        My Skills
+        <div>- Java<br>- Python<br>- HTML</div>
+    </div>
+    <div id="volunteer">
+        Volunteering
+        <div>- Ruach Tova</div>
+    </div>
+    <div id="Education">
+        Education
+        <div>- Itzhak Rabin Highscool <br>- Ben Gurion University</div>
+    </div>
+</div>
+<div id="button-div">
+    <button id="cmd" onclick="CreatePDFfromHTML()">generate PDF</button>
+</div>
+</body>
+</html>

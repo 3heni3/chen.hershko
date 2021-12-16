@@ -10,7 +10,6 @@ div div div {
     grid-area: header;
     background-color: rgb(238, 67, 96);
  }
-
 #Skills { 
     grid-area: right;
     background-color: rgb(230, 128, 243); }
@@ -26,7 +25,7 @@ div div div {
 
 #MyCVGrid {
     display: grid;
-    grid-template-areas: 
+    grid-template-areas:
     'header header header header'
     'left left right right'
     'footer footer footer footer';

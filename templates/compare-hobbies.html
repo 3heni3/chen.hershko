@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="{{ url_for('static', filename='js/hobbies-compare.js') }}"></script>
+</head>
+<body>
+{% set page_name = 'Compare Hobbies' %}
+{% include 'header.html' %}
+{% if user %}
+<h1>Hello {{ user.first_name | capitalize }} {{ user.last_name | upper }}</h1>
+{% else %}
+<h1>Hello Stranger!</h1>
+{% endif %}
+{% if both_hobbies %}
+<h3>Hobbies We Both Have:</h3>
+<ul>
+    {% for hobby in both_hobbies %}
+    <li>{{hobby | capitalize}}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% if only_user_hobbies is defined and only_user_hobbies|length > 0 %}
+<h3>Hobbies Only You Have:</h3>
+<ul>
+    {% for hobby in only_user_hobbies %}
+    <li>{{hobby | capitalize}}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% if only_chen_hobbies is defined and only_chen_hobbies|length > 0 %}
+<h3>Hobbies Only I Have:</h3>
+<ul>
+    {% for hobby in only_chen_hobbies %}
+    <li>{{hobby | capitalize}}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+<h1>See My Hobbies</h1>
+<div class="SubHeaders">
+    <div class="SubHeader">
+        <a href="{{ url_for('hobbies', category='sport') }}">
+            <h3>Sports</h3>
+        </a>
+    </div>
+    <div class="SubHeader">
+        <a href="{{ url_for('hobbies', category='music') }}">
+            <h3>Music</h3>
+        </a>
+    </div>
+    <div class="SubHeader">
+        <a href="{{ url_for('hobbies', category='tv') }}">
+            <h3>TV Shows</h3>
+        </a>
+    </div>
+</body>
+</html>

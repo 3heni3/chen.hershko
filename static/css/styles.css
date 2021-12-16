@@ -12,3 +12,8 @@ p {
 .Headers {
     color: purple;
 }
+ul {
+    text-align: center;
+    list-style-position: a;
+    display: inline-block;
+}
