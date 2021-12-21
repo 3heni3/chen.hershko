@@ -1,0 +1,39 @@
+<body>
+{% set page_name = 'Assignment 9' %}
+{% include 'header.html' %}
+{% if users is defined %}
+<h1>
+    users found
+</h1>
+<ul>
+    {% for user in users %}
+    <li>{{user}}</li>
+    {% endfor %}
+</ul>
+{% else %}
+    <h1>Search User</h1>
+<form method="GET" action="/assignment9">
+    <p>Name To Search</p>
+    <input name="name">
+    <input type="submit">
+</form>
+</body>
+{% endif %}
+{% if nickname == None %}
+<h1>Register</h1>
+<form method="POST" action="/assignment9">
+    <p>Your name</p>
+    <input name="name">
+    <p>Your Nickname</p>
+    <input name="nickname">
+    <br>
+    <br>
+    <input type="submit">
+</form>
+{% endif %}
+
+{% if nickname != None %}
+<form method="GET" action="/logout">
+    <input type="submit" value="logout">
+</form>
+{% endif %}

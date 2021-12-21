@@ -3,6 +3,12 @@
 </head>
 <header>
     <h2>Current Page: {{ page_name }}</h2>
+    {% if nickname != None %}
+    <h1>
+        Hello {{nickname}}
+    </h1>
+    <br>
+    {% endif %}
     <div class="SubHeaders" id="Headers">
         <div class="SubHeader">
             <a href="{{ url_for('home') }}">
@@ -22,6 +28,11 @@
         <div class="SubHeader">
             <a href="{{ url_for('hobbies') }}">
                 <h3>Hobbies</h3>
+            </a>
+        </div>
+        <div class="SubHeader">
+            <a href="{{ url_for('ex9') }}">
+                <h3>Assignment 9</h3>
             </a>
         </div>
     </div>
