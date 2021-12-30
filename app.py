@@ -1,8 +1,11 @@
 from flask import Flask, request, render_template, session, url_for, redirect
 import random
 import string
+from Pages.Assignment10.Assignment10 import Assignment10
 
 app = Flask(__name__)
+app.register_blueprint(Assignment10)
+
 app.secret_key = ''.join(random.choices(string.ascii_uppercase + string.digits, k=16))
 SPORT_HOBBIES = ['football', 'volleyball', 'ballet']
 TV_SHOW_HOBBIES = ['pokemon', 'yugi-oh', 'marko', 'sheshtus']

@@ -1,0 +1,44 @@
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                <h1 align="center">{{ message }}</h1>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+<form method="POST" action="/assignment10/insert_user">
+    <h1>Insertion a user name</h1>
+    <p>Email of user to be inserted</p>
+    <input name="new_email">
+    <p>Name of user to be inserted</p>
+    <input name="new_name">
+    <input type="submit">
+</form>
+
+
+<form method="POST" action="/assignment10/update_user">
+    <h1>Update a user name</h1>
+    <p>Email of user to be updated</p>
+    <input name="email">
+    <p>New name of the username corresponding to the email given. Required.</p>
+    <input name="new_name">
+    <p>New email of the username corresponding to the email given. Will not update email if not given.</p>
+    <input name="new_email">
+    <input type="submit">
+</form>
+
+
+<form method="POST" action="/assignment10/delete_user">
+    <h1>Delete a user name</h1>
+    <input name="username">
+    <input type="submit">
+</form>
+
+
+<ul>
+    <p>List of users</p>
+    {% for user in users %}
+    <li>{{user}}</li>
+    {% endfor %}
+</ul>
