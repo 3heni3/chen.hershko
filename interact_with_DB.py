@@ -5,13 +5,15 @@ import mysql.connector
 # ------------------------------------------------- #
 # ------------- DATABASE CONNECTION --------------- #
 # ------------------------------------------------- #
-def interact_db(query, query_type: str):
+def interact_db(query, query_type: str, named_tuple=True, dictionary=None):
     return_value = False
     connection = mysql.connector.connect(host='localhost',
                                          user='root',
                                          passwd='root',
                                          database='chen_new')
-    cursor = connection.cursor(named_tuple=True)
+    if dictionary and named_tuple:
+        raise Exception('Only one of named tuple or dictionary can be chosen')
+    cursor = connection.cursor(named_tuple=named_tuple, dictionary=dictionary)
     cursor.execute(query)
     #
 
@@ -30,7 +32,6 @@ def interact_db(query, query_type: str):
     connection.close()
     cursor.close()
     return return_value
-
 
 # ------------------------------------------------- #
 # ------------------------------------------------- #

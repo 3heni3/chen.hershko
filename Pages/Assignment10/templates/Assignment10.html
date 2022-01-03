@@ -1,3 +1,4 @@
+{% include 'header.html' %}
 {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
         {% for category, message in messages %}
@@ -10,9 +11,9 @@
 <form method="POST" action="/assignment10/insert_user">
     <h1>Insertion a user name</h1>
     <p>Email of user to be inserted</p>
-    <input name="new_email">
+    <input name="new_email" required>
     <p>Name of user to be inserted</p>
-    <input name="new_name">
+    <input name="new_name" required>
     <input type="submit">
 </form>
 
@@ -20,9 +21,9 @@
 <form method="POST" action="/assignment10/update_user">
     <h1>Update a user name</h1>
     <p>Email of user to be updated</p>
-    <input name="email">
+    <input name="email" required>
     <p>New name of the username corresponding to the email given. Required.</p>
-    <input name="new_name">
+    <input name="new_name" required>
     <p>New email of the username corresponding to the email given. Will not update email if not given.</p>
     <input name="new_email">
     <input type="submit">
@@ -31,7 +32,7 @@
 
 <form method="POST" action="/assignment10/delete_user">
     <h1>Delete a user name</h1>
-    <input name="username">
+    <input name="username" required>
     <input type="submit">
 </form>
 

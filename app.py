@@ -2,10 +2,12 @@ from flask import Flask, request, render_template, session, url_for, redirect
 import random
 import string
 from Pages.Assignment10.Assignment10 import Assignment10
+from Pages.Assignment11.Assignment11 import Assignment11
 
 app = Flask(__name__)
 app.register_blueprint(Assignment10)
-
+app.register_blueprint(Assignment11)
+app.config['TEMPLATES_AUTO_RELOAD'] = True
 app.secret_key = ''.join(random.choices(string.ascii_uppercase + string.digits, k=16))
 SPORT_HOBBIES = ['football', 'volleyball', 'ballet']
 TV_SHOW_HOBBIES = ['pokemon', 'yugi-oh', 'marko', 'sheshtus']
@@ -104,4 +106,4 @@ def logout():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port=5051)

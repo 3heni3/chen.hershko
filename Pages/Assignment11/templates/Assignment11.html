@@ -1,0 +1,19 @@
+{% include 'header.html' %}
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="{{ url_for('Assignment11.static', filename='js/Assignment11.js') }}"></script>
+<form id="js-form" action='#' name="Assignment11" onsubmit="return CallJSON()">
+    <label for="x-js">Insert the user ID</label>
+    <input name="x-js" id="x-js" required>
+    <input type="submit">
+</form>
+<form method="GET" action="/assignment11/outer_source">
+    <label for="x-py">Insert the user ID</label>
+    <input name="x-py" id="x-py" required>
+    <input type="submit">
+</form>
+<div id="UserData">
+    <p>User Data</p>
+    {% if user_data %}
+    <p>User data from quest is <br>{{ user_data }}</p>
+    {% endif %}
+</div>
