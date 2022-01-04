@@ -1,6 +1,6 @@
 {% include 'header.html' %}
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
-<script src="{{ url_for('Assignment11.static', filename='js/Assignment11.js') }}"></script>
+<script src="{{ url_for('Assignment10.static', filename='js/Assignment11.js') }}"></script>
 <form id="js-form" action='#' name="Assignment11" onsubmit="return CallJSON()">
     <label for="x-js">Insert the user ID</label>
     <input name="x-js" id="x-js" required>
@@ -14,6 +14,12 @@
 <div id="UserData">
     <p>User Data</p>
     {% if user_data %}
-    <p>User data from quest is <br>{{ user_data }}</p>
+    <p>User data from request is</p>
+    <img src="{{ user_data.avatar }}" alt="Profile Picture">
+    <div>
+        <span>{{user_data.first_name}} {{user_data.last_name}}</span>
+        <br>
+        <a href="mailto:{{user_data.email}}">Send Email</a>
+    </div>
     {% endif %}
 </div>
