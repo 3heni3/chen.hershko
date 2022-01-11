@@ -89,3 +89,16 @@ def outer_source():
         except Exception:
             x = 'Could not retrieve the user data'
     return render_template('Assignment11.html', user_data=x)
+
+
+@Assignment10.route('/assignment12/restapi_users', defaults={'user_id': 1})
+@Assignment10.route('/assignment12/restapi_users/<int:user_id>')
+def get_user_data(user_id):
+    query = f'''
+    SELECT * from users WHERE user_id={user_id}
+    '''
+    # Returns as a JSON because dictionary is True
+    user_data = interact_db(query=query, query_type='fetch', named_tuple=None, dictionary=True)
+    if not user_data:
+        user_data = {'error': f'user with id {user_id} was not found'}
+    return Response(json.dumps(user_data), mimetype='application/json')
